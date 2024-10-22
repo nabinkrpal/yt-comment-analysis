@@ -39,3 +39,24 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
   .catch((err) => console.log(err));
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+//package
+// {
+//   "name": "youtube-comment-analysis",
+//   "version": "1.0.0",
+//   "description": "YouTube channel comment analysis and recommendation system",
+//   "main": "server.js",
+//   "scripts": {
+//     "build": "npm i",
+//     "dev": "nodemon server.js"
+//   },
+//   "dependencies": {
+//     "dotenv": "^16.0.3",
+//     "express": "^4.18.2",
+//     "passport": "^0.6.0",
+//     "passport-google-oauth20": "^2.0.0",
+//     "mongoose": "^6.10.0",
+//     "cookie-session": "^2.0.0",
+//     "axios": "^1.0.0"
+//   }
+// }
