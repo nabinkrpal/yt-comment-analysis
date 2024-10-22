@@ -2,10 +2,10 @@
     "name": "youtube-comment-analysis",
     "version": "1.0.0",
     "description": "YouTube channel comment analysis and recommendation system",
-    "main": "src/server.js",
+    "main": "server.js",
     "scripts": {
       "build": "npm i",
-      "dev": "nodemon src/server.js"
+      "dev": "nodemon server.js"
     },
     "dependencies": {
       "dotenv": "^16.0.3",
