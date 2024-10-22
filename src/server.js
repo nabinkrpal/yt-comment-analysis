@@ -1,5 +1,4 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const session = require('cookie-session');
 const passport = require('passport');
 require('dotenv').config();
@@ -26,6 +25,26 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+// In-memory stats storage
+let statsData = [];
+
+// Function to simulate processing stats
+const processStats = () => {
+  const newStat = {
+    timestamp: new Date(),
+    value: Math.random() * 100 // Simulating some random stat value
+  };
+  statsData.push(newStat); // Store it in memory
+};
+
+// Example interval for processing stats (every minute)
+setInterval(processStats, 60000);
+
+// Route to display stats
+app.get('/stats', (req, res) => {
+  res.json(statsData); // Return the in-memory stats data
+});
+
 // Routes
 app.use('/auth', authRoutes);
 app.use('/dashboard', authMiddleware, dashboardRoutes);
@@ -34,10 +53,7 @@ app.use('/admin', authMiddleware, adminRoutes);
 // Static files for frontend
 app.use(express.static('public'));
 
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log("MongoDB connected"))
-  .catch((err) => console.log(err));
-
+// Start the server
 app.listen(PORT, () => console.log(`Server running on port http://localhost:${PORT}`));
 
 //package
