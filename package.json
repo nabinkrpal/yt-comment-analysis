@@ -4,8 +4,10 @@
   "description": "YouTube channel comment analysis and recommendation system",
   "main": "src/server.js",
   "scripts": {
-    "start": "node src/server.js"
+    "build": "npm i",
+    "dev": "nodemon server.js"
   },
+  
   "dependencies": {
     "axios": "^1.7.7",
     "cookie-session": "^2.1.0",
